@@ -1,0 +1,200 @@
+q1
+package cg;
+@FunctionalInterface
+interface ArithmeticOperation {
+	int operation(int a, int b);
+}
+public class Lambda {
+	public static void main(String[] args) {
+		System.out.println("Addition:");
+		ArithmeticOperation Add = (a, b) -> (a + b);
+		System.out.println(Add.operation(100, 50));
+		System.out.println("-----------------");
+		System.out.println("Subtraction:");
+		ArithmeticOperation Sub = (a, b) -> (a - b);
+		System.out.println(Sub.operation(100, 50));
+		System.out.println("-----------------");
+		System.out.println("Multiplication:");
+		ArithmeticOperation Mul = (a, b) -> (a * b);
+		System.out.println(Mul.operation(100, 50));
+		System.out.println("-----------------");
+		System.out.println("Division:");
+		ArithmeticOperation Div = (a, b) -> (a / b);
+		System.out.println(Div.operation(100, 50));
+	}
+}
+====================================================================
+q6
+package cg;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.UnaryOperator;
+
+class MyOperator implements UnaryOperator<String> {
+	@Override
+	public String apply(String t) {
+		return t.toUpperCase();
+	}
+}
+
+public class Lambda2 {
+	public static void main(String[] args) {
+		List<String> li = new ArrayList<>();
+		li.add("Pramod");
+		li.add("vinod");
+		li.add("Pratik");
+		li.add("manoj");
+		li.add("akash");
+		System.out.println("----------------------------------------------------------------");
+		System.out.println("Elements in list are:");
+		System.out.println(li);
+		System.out.println("----------------------------------------------------------------");
+		li.replaceAll(new MyOperator());
+		System.out.println("Elements in list after replacing with upper case letters are:");
+		System.out.println(li);
+		System.out.println("----------------------------------------------------------------");
+	}
+
+}
+============================================================================================
+q5
+package cg;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Lamda5 {
+    public static void main(String[] args) {
+List<String> Names=new ArrayList<>();
+        Names.add("Mahesh");
+        Names.add("Aakash");
+        Names.add("Suraj");
+        Names.add("Kiran");
+
+StringBuilder result=new StringBuilder();
+Names.forEach(s ->result.append(s.charAt(0)));
+        System.out.println(result);
+    }
+}
+================================================================
+q2
+package cg;
+import java.util.Arrays;
+import java.util.List;
+
+public class Lamda2 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		List<Orders> orders=Arrays.asList(new Orders(2344),
+				new Orders(70000),
+				new Orders(60000));
+	orders.stream().filter(t->t.getPrice()>10000).forEach(t -> System.out.println("order is accepted:"+t));
+		
+	
+	
+	}
+}
+
+========++++======
+package cg;
+public class Orders {
+	 int price;
+
+	@Override
+	public String toString() {
+		return "Orders [price=" + price + "]";
+	}
+
+	public int getPrice() {
+		return price;
+	}
+
+	public void setPrice(int price) {
+		this.price = price;
+	}
+
+	public Orders(int price) {
+		super();
+		this.price = price;
+	}
+
+
+	}
+========================================================
+q4
+package cg;
+
+import java.util.ArrayList;
+public class Lamda4 {
+	
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method st
+		ArrayList<String> listOfName= new ArrayList<>();
+		listOfName.add("somabha");
+		listOfName.add("Sachinbro");
+		listOfName.add("Panjabib");
+		System.out.println("before removing namee from  list "+listOfName);
+		listOfName.removeIf(s ->(s.length()%2!=0));
+		//if(name.length/2==0)
+			//{
+			//System.out.println(lastOfName);
+			//};
+		System.out.println("after removing");
+		System.out.println(listOfName);
+	}
+
+}
+======================================================================
+q8
+package cg;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Lamda8 {
+    public static void main(String[] args) {
+        List<Integer> Numbers=new ArrayList<>();
+        Numbers.add(1);
+        Numbers.add(2);
+        Numbers.add(3);
+        Numbers.add(4);
+
+        Thread t1=new Thread(()-> Numbers.forEach(i -> System.out.println(i)));
+        t1.start();
+    }
+}
+====================================================================
+q3
+package cg;
+import java.util.function.Consumer;
+import java.util.function.Function;
+import java.util.function.Predicate;
+
+public class Lamda3 {
+    public static void main(String[] args) {
+
+        Predicate<String> checkL=str->str.length()>4;
+        System.out.println(checkL.test("Antonio"));
+
+
+        Person p=new Person();
+        Consumer<Person> setname=s->s.setName("Rama");
+        setname.accept(p);
+        System.out.println(p.getName());
+
+
+        Function<Integer,String> test1=i->i+5+" integer added to 5";
+        test1.apply(6);
+    }
+}
+class Person{
+    String name;
+    public void setName(String name) {
+        this.name = name;
+    }
+    public String getName() {
+        return name;
+    }
+
+}

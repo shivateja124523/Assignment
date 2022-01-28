@@ -1,0 +1,79 @@
+q1
+package q_spider;
+public class Annotation1 {
+
+	@interface Test {
+		int test_case();
+
+	}
+
+	@Test(test_case = 1)
+	public static void meth1() {
+		System.out.println("this is method 1");
+
+	}
+
+	@Test(test_case = 2)
+	public void meth2() {
+		System.out.println("this is method 2");
+	}
+
+	public static void main(String[] args) {
+		meth1();
+	}
+}
+=====================================================
+q2
+package q_spider;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.Target;
+import java.lang.annotation.RetentionPolicy;
+
+@Target(ElementType.TYPE)
+@Retention(RetentionPolicy.RUNTIME)
+public @interface info {
+
+	String name();
+	String supervisor()default "TEJA";
+	int version();
+	int AuthorID();
+	String Author() default "SHIVA";
+	String Date();
+	String Time();
+	String desp() default "hello its annotation program";
+===================================================================
+Q3
+package q_spider;
+
+import java.lang.annotation.*;
+
+public class Annotation3 {
+public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Information i=new Information("extra info");
+		Class c = i.getClass();
+		java.lang.annotation.Annotation an=c.getAnnotation(info.class);
+		info in=(info)an;
+		System.out.println(in.Date());
+		System.out.println(in.AuthorID());
+		System.out.println(in.Time());
+		System.out.println(in.version());
+		
+	}
+
+}
+
+
+
+@info(name="shivateja",version=3,AuthorID=101,Author="shivateja",Date="27.09.2021",Time="3:30")
+class Information{
+	String extrainfo;
+
+	public Information(String extrainfo) {
+		super();
+		this.extrainfo = extrainfo;
+	}
+}
+===========================================================================
+

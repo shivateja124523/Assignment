@@ -1,0 +1,88 @@
+q1
+package cg;
+import java.util.*;
+public class s1 
+{
+     public static void main(String[] args) 
+    {
+    Scanner sc=new Scanner(System.in);
+    System.out.println("enter the string");
+	String str1 = sc.next();
+	int size = str1.length();
+	System.out.println(size);
+}
+}
+===========================================
+q2
+package cg;
+import java.util.*;
+public class s2 {
+     public static void main(String[] args) {
+     Scanner sc=new Scanner(System.in);
+     System.out.println("enter the 1 string ");
+		String str1 = sc.nextLine();
+		 System.out.println("enter the 2 string");
+		String str2 = sc.nextLine();
+		String str3 = str1.concat(str2);
+		System.out.println("the concatenated string is: "+str3);
+	}
+}
+====================================================
+q3
+package cg;
+
+public class s3 {
+    public static void main(String[] args) {
+		String str1 = "Java string pool refers to the collection of Strings which are stored in heap memory";
+		System.out.println("1:To lower case: "+str1.toLowerCase());
+		System.out.println("2:To upper case: "+str1.toUpperCase());
+		
+		String replaceString = str1.replace('a','$');	
+		System.out.println("3:Replacing all the a's with $: "+replaceString);
+		
+		String str2 = "collection";	
+		System.out.println("4:does string contains collection: "+str1.contains(str2));
+		
+		String str3 = "Java string pool refers to the collection of Strings which are stored in heap memory";
+		System.out.println("5: "+str1.contains(str3));
+		
+		if(str1.equals(str3))
+		{
+			System.out.println("6:String1 is equal to String3");
+		}
+		else
+		{
+			System.out.println("6:String1 is not equal to String3");
+		}
+		
+	}
+}
+=============================================================================
+q4
+package cg;
+ public class sb1
+ {
+  public static void main(String[] args) {
+	  StringBuffer sb = new StringBuffer("StringBuffer");
+	  sb.append(" ,is a peer class of string ");
+	  sb.append(" ,that provides such of , ");
+	  sb.append("the functionality of strings ");
+	  System.out.println(sb);
+  }
+ }
+===========================================================================
+q5
+package cg;
+
+public class sb4 {
+
+	 public static void main(String[] args) {
+		  StringBuilder sb = new StringBuilder("This method returns the reversed object on which it was called");
+		  System.out.println("++++++++Orginal String+++++++");
+		  System.out.println(sb);
+		  sb.reverse();
+		  System.out.println("++++++++Reversed String+++++++");
+		  System.out.println(sb);
+	 }
+}
+===============================================================================
